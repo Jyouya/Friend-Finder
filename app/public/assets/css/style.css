@@ -1,0 +1,22 @@
+#survey>.card {
+    transform: translateY(-45%) scaleY(.1);
+    height: 50vh;
+    min-height: 800px;
+}
+
+.is-active#survey>.card {
+    transform: scaleY(1);
+    transition: transform 1s;
+}
+
+/* .photo {
+    object-fit: cover;
+} */
+
+.section {
+    height: 100vh;
+}
+
+.is-100pct {
+    height: 100%;
+}

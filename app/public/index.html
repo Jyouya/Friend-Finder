@@ -11,7 +11,19 @@
 </head>
 
 <body>
-    <button class="button is-primary" id="start-survey">Take the survey!</button>
+    <div class="container">
+        <section class="section">
+            <div class="columns is-centered is-100pct">
+                <div class="column is-vcentered is-half">
+
+                    <button class="button is-primary" id="start-survey">Take the survey!</button>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
     <div class="modal" id="survey">
         <div class="modal-background"></div>
         <div class="modal-content card">
@@ -19,7 +31,24 @@
         </div>
         <button class="modal-close is-large" aria-label="close"></button>
     </div>
-    
+
+    <div class="modal" id="results">
+        <div class="modal-background"></div>
+        <div class="modal-content card">
+            <header class="card-header">
+                <p class="card-header-title">Meet your new best friend!</p>
+            </header>
+            <div class="card-image">
+                <figure class="image" id="results-image">
+
+                </figure>
+            </div>
+            <div class="card-content" id="results-content">
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="./assets/javascript/Question.js"></script>

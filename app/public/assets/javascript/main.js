@@ -5,20 +5,23 @@ const survey = [
 let questions;
 
 function* surveyGen(questions) {
+    let index = 0;
     for (let question of questions) {
-        yield question.buildHTML();
+        yield question.buildHTML(index);
+        index++;
     }
 }
 
 $('#survey-content').submit(function (event) {
     event.preventDefault();
     $.post('./api/friends', $(this).serialize()).then(function (response) {
-
+        console.log(response);
+        showResult(response);
     });
 })
 
 $('#start-survey').click(function (event) {
-    $('#survey').toggle('is-active');
+    $('#survey').addClass('is-active');
     $('#survey-content').empty();
     questions = surveyGen(survey);
     askNextQuestion();
@@ -26,8 +29,19 @@ $('#start-survey').click(function (event) {
 
 $('#survey').on('click', '.modal-close, .modal-background', function (event) {
     console.log('debug');
-    $('#survey').toggle('is-active');
+    $('#survey').removeClass('is-active');
 });
+
+function showResult(friend) {
+    $('.modal').removeClass('is-active');
+    $('#results-image').empty().append(
+        $('<img class="photo">').attr('src', friend.photo)
+    )
+    $('#results-content').append(
+        $('<p class="title is-4">').text(friend.name),
+    )
+    $('#results').addClass('is-active')
+}
 
 
 function askNextQuestion() {

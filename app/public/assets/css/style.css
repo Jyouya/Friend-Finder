@@ -1,3 +1,15 @@
+html {
+    scroll-snap-type: y mandatory;
+}
+
+body {
+    max-height: 100vh;
+}
+
+.title {
+    font-family: 'Caveat', cursive;
+}
+
 #survey>.card {
     transform: translateY(-45%) scaleY(.1);
     height: 50vh;
@@ -9,14 +21,93 @@
     transition: transform 1s;
 }
 
-/* .photo {
-    object-fit: cover;
-} */
-
 .section {
     height: 100vh;
+    position: relative;
+    scroll-snap-align: start;
+    overflow: visible;
 }
 
-.is-100pct {
+.section-inside {
     height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.main {
+    overflow: visible;
+}
+
+.intro {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    max-height: 400px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "";
+    background: url("../images/pink_rice.png");
+    overflow: hidden;
+    background-attachment: fixed;
+    filter: blur(3px);
+    z-index: -1;
+}
+
+.intro .title {
+    font-size: 6rem;
+}
+
+.intro .is-2 {
+    font-size: 2rem;
+}
+
+.paw::before {
+    font-family: "Font Awesome 5 Free";
+    font-size: 10rem;
+    content: "\f1b0";
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 900;
+    padding-right: 3px;
+}
+
+.whitebox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    opacity: .12;
+}
+
+.page::before {
+    content: "";
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    margin: 0 calc((100% - 100vw) / 2);
+    padding: 0 calc((100% - 100vw) / -2);
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+#home::before {
+    background: url("../images/pink_rice.png");
 }

@@ -38,6 +38,14 @@ body {
     overflow: visible;
 }
 
+.center-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
 .intro {
     position: absolute;
     left: 50%;
@@ -45,13 +53,10 @@ body {
     transform: translate(-50%, -50%);
     width: 100%;
     max-width: 600px;
-    height: 100%;
-    max-height: 400px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    /* height: 100%;
+    max-height: 400px; */
+    padding: 2rem 1rem;
+    text-shadow: 1px 1px 2px #666666aa;
 }
 
 .intro::before {
@@ -65,7 +70,7 @@ body {
     overflow: hidden;
     /* background-attachment: absolute; */
     background-position: calc((100% - 100vw) / 2) calc((100% - 100vh) / 2);
-    filter: blur(3px);
+    filter: blur(2px);
     z-index: -1;
 }
 
@@ -77,27 +82,38 @@ body {
     font-size: 2.25rem;
 }
 
+.survey-content {
+    height: 100%;
+    /* max-height: initial; */
+    padding: 2rem;
+    ;
+}
+
 .survey-content::before {
     background: url("../images/full-bloom.png");
     background-position: calc((100% - 100vw) / 2) calc((100% - 100vh) / 2);
 }
 
-/* .paw::before {
-    font-family: "Font Awesome 5 Free";
-    font-size: 10rem;
-    content: "\f1b0";
-    display: inline-block;
-    vertical-align: middle;
-    font-weight: 900;
-    padding-right: 3px;
-    
-} */
-
 /* TODO : make the paw mottled.  Change pattern on mouseover */
+
 .paw {
     color: pink;
-    text-shadow: 2px 2px 5px #666666aa;
+    /* text-shadow: 2px 2px 5px #666666aa; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* transition: color .1s; */
+}
+
+.paw:hover {
+    color:palevioletred;
+    /* transition: color .1s; */
+}
+
+.paw-shadow {
+    color: transparent;
     position: relative;
+    text-shadow: 2px 2px 5px #666666aa;
 }
 
 #start-survey::after {
@@ -143,7 +159,54 @@ body {
     background: url("../images/pink_rice.png");
 }
 
+#survey {
+    display: none;
+}
+
+#survey .intro {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
 #survey::before {
     background-color: #aaffdd;
     background-image: url("../images/full-bloom.png");
+}
+
+@media screen and (max-width: 768px) {
+    .survey-content {
+        padding: .5rem 1rem;
+    }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .paw {
+        text-shadow: none;
+        background: red;
+        background: 
+            radial-gradient(circle at 0% 50%, #D5B185 45px, transparent 55px),
+            radial-gradient(at 50% 100%, #2D251B 50px, transparent 55px),
+            radial-gradient(circle at 90% 5%, #D5B185 90px, transparent 100px),
+            #f9f4ee;
+
+        /* background: radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px) 0px 10px, radial-gradient(at 100% 100%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px), #8a3; */
+        background-size: 200px 200px;
+        color: transparent;
+        -webkit-background-clip: text;
+    }
+
+    #start-survey::after{
+        color:#d5b185;
+        text-shadow: 1px 1px 3px #666666aa;
+        text-shadow: none;
+        /* transition: color text-shadow .1s; */
+    }
+
+    #start-survey:hover::after {
+        color: white;
+        /* transition: color text-shadow .1s; */
+    }
+
+    .paw:hover {
+        color: pink;
+    }
 }

@@ -1,17 +1,79 @@
 [
     {
-        "name": "Fluffles",
-        "photo": "https://images.unsplash.com/photo-1518791841217-8f162f1e1131",
+        "name": "Miko",
+        "photo": "./assets/images/miko.jpg",
+        "scores": [
+            1,
+            4,
+            3,
+            5,
+            5
+        ]
+    },
+    {
+        "name": "Coco",
+        "photo": "./assets/images/coco.jpg",
+        "scores": [
+            2,
+            5,
+            2,
+            3,
+            5
+        ]
+    },
+    {
+        "name": "Panther",
+        "photo": "./assets/images/panther.jpg",
+        "scores": [
+            2,
+            3,
+            1,
+            1,
+            4
+        ]
+    },
+    {
+        "name": "Kittyhawk",
+        "photo": "./assets/images/kittyhawk.jpg",
         "scores": [
             5,
+            2,
+            1,
             4,
-            5,
+            5
+        ]
+    },
+    {
+        "name": "Guilia",
+        "photo": "./assets/images/guilia.jpg",
+        "scores": [
+            3,
+            1,
+            4,
+            2,
+            3
+        ]
+    },
+    {
+        "name": "Toast",
+        "photo": "./assets/images/toast.jpg",
+        "scores": [
+            4,
+            1,
+            3,
+            1,
+            1
+        ]
+    },
+    {
+        "name": "Rollo",
+        "photo": "./assets/images/rollo.jpg",
+        "scores": [
+            3,
+            3,
             3,
             2,
-            4,
-            5,
-            1,
-            2
+            3
         ]
     }
 ]

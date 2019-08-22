@@ -1,4 +1,4 @@
-const SURVEY_LENGTH = 2;
+const SURVEY_LENGTH = 5;
 const fsp = require('fs').promises;
 const path = require('path');
 

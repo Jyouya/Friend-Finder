@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <!-- <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> -->
+    <script src="https://kit.fontawesome.com/3ea84b0eb7.js"></script>
 </head>
 
 <body>
@@ -20,26 +21,32 @@
                 <div class="intro">
                     <div class="whitebox"></div>
                     <h1 class="title is-1">Friend Finder</h1>
-                    <h2 class="is-2">Find your new best friend</h2>
+                    <h2 class="is-2">Meet your new best friend</h2>
                     <br>
-                    <button class="button is-primary paw" id="start-survey"><i class="fas fa-paw"></i>Get Started</button>
-    
+                    <!-- <button class="button is-primary paw" id="start-survey"><i class="fas fa-paw"></i>Get Started</button> -->
+                    <a class="fas fa-paw fa-10x paw" id="start-survey"></a>
                 </div>
             </div>
 
         </section>
-        <section class="section"></section>
+        <section class="section page" id="survey">
+            <div class="section-inside">
+                <div class="intro survey-content">
+                    <div class="whitebox"></div>
+                </div>
+            </div>
+        </section>
 
     </div>
 
 
-    <div class="modal" id="survey">
+    <!-- <div class="modal" id="survey">
         <div class="modal-background"></div>
         <div class="modal-content card">
             <form class="card-content" action="" id="survey-content"></form>
         </div>
         <button class="modal-close is-large" aria-label="close"></button>
-    </div>
+    </div> -->
 
     <div class="modal" id="results">
         <div class="modal-background"></div>

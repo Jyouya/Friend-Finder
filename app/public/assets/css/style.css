@@ -86,7 +86,8 @@ body {
     height: 100%;
     /* max-height: initial; */
     padding: 2rem;
-    ;
+    display: flex;
+    flex-direction: column;
 }
 
 .survey-content::before {
@@ -94,7 +95,9 @@ body {
     background-position: calc((100% - 100vw) / 2) calc((100% - 100vh) / 2);
 }
 
-/* TODO : make the paw mottled.  Change pattern on mouseover */
+.questions {
+    flex-grow: 1;
+}
 
 .paw {
     color: pink;
@@ -106,7 +109,7 @@ body {
 }
 
 .paw:hover {
-    color:palevioletred;
+    color: palevioletred;
     /* transition: color .1s; */
 }
 
@@ -172,6 +175,20 @@ body {
     background-image: url("../images/full-bloom.png");
 }
 
+.restart {
+    position: relative;
+    z-index: 10;
+}
+
+.modal-background {
+    background: none;
+}
+
+body.modal-open section {
+    filter: blur(10px);
+    transition: filter .5s;
+}
+
 @media screen and (max-width: 768px) {
     .survey-content {
         padding: .5rem 1rem;
@@ -182,30 +199,22 @@ body {
     .paw {
         text-shadow: none;
         background: red;
-        background: 
-            radial-gradient(circle at 0% 50%, #D5B185 45px, transparent 55px),
-            radial-gradient(at 50% 100%, #2D251B 50px, transparent 55px),
-            radial-gradient(circle at 90% 5%, #D5B185 90px, transparent 100px),
-            #f9f4ee;
-
+        background: radial-gradient(circle at 0% 50%, #D5B185 45px, transparent 55px), radial-gradient(at 50% 100%, #2D251B 50px, transparent 55px), radial-gradient(circle at 90% 5%, #D5B185 90px, transparent 100px), #f9f4ee;
         /* background: radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px) 0px 10px, radial-gradient(at 100% 100%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px), #8a3; */
         background-size: 200px 200px;
         color: transparent;
         -webkit-background-clip: text;
     }
-
-    #start-survey::after{
-        color:#d5b185;
+    #start-survey::after {
+        color: #d5b185;
         text-shadow: 1px 1px 3px #666666aa;
         text-shadow: none;
         /* transition: color text-shadow .1s; */
     }
-
     #start-survey:hover::after {
         color: white;
         /* transition: color text-shadow .1s; */
     }
-
     .paw:hover {
         color: pink;
     }

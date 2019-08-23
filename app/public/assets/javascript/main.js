@@ -23,13 +23,13 @@ $('.survey-content').submit(function (event) {
         console.log(response);
         showResult(response);
     });
-})
+});
 
 $('#start-survey').click(function (event) {
     $('#survey').show();
 
     // $('#survey').addClass('is-active');
-    $('.survey-content').empty();
+    $('.questions').empty();
     // $(window).animate({scrollTop: '100vh'},500);
     $('#survey')[0].scrollIntoView({
         behavior: "smooth", // or "auto" or "instant"
@@ -37,7 +37,11 @@ $('#start-survey').click(function (event) {
     })
     questions = surveyGen(survey);
     askNextQuestion();
-})
+});
+
+$('.restart').click(function (event) {
+    $('#survey').hide();
+});
 
 function showResult(friend) {
     $('.modal').removeClass('is-active');
@@ -47,10 +51,16 @@ function showResult(friend) {
     $('#results-content').empty().append(
         $('<p class="title is-4">').text(friend.name),
     )
-    $('#results').addClass('is-active');
+
+    // blur background, then display modal
+    $('body').addClass('modal-open');
+    new Promise(resolve => setTimeout(resolve, 400)).then(() => {
+        $('#results').addClass('is-active');
+    })
 
     $('#results .modal-close, #results .modal-background').one('click', function () {
         $('#results').removeClass('is-active');
+        $('body').removeClass('modal-open');
     });
 }
 
@@ -59,9 +69,9 @@ function askNextQuestion() {
     const next = questions.next().value;
     console.log(next);
     if (next) {
-        $('.survey-content').append(next)
+        $('.questions').append(next)
     } else {
-        $('.survey-content').append(
+        $('.questions').append(
             $('<div class="field">').append(
                 $('<div class="control">').append(
                     $('<button class="button is-link">')
@@ -69,6 +79,6 @@ function askNextQuestion() {
                 )
             )
         )
-        $('.survey-content').animate({ scrollTop: '100%' }, 500);
+        $('.survey-content').animate({ scrollTop: '100%' }, 300);
     }
 }

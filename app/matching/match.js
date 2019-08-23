@@ -1,4 +1,4 @@
-const SURVEY_LENGTH = 5;
+const SURVEY_LENGTH = 10; // could be obtained programmatically, or have the client send it, since the client actually knows the length without having to calculate it
 const fsp = require('fs').promises;
 const path = require('path');
 

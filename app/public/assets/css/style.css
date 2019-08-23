@@ -24,7 +24,7 @@ body {
 .section {
     height: 100vh;
     position: relative;
-    scroll-snap-align: start;
+    /* scroll-snap-align: start; */
     overflow: visible;
 }
 
@@ -88,6 +88,12 @@ body {
     padding: 2rem;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+    scrollbar-width: none; 
+}
+
+.survey-content::-webkit-scrollbar { 
+    display: none;
 }
 
 .survey-content::before {
@@ -141,9 +147,22 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    /* bottom: 0; */
+    height: 100%;
     background: white;
     opacity: .12;
+}
+
+.survey-content::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: white;
+    opacity: .12;
+    z-index: -1;
 }
 
 .page::before {

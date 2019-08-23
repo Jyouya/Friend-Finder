@@ -4,7 +4,11 @@ const survey = [
     new Question('Do you prefer Summer to Winter?', 'A lot', 'A little', 'Neutral', 'Not really', 'Not at all'),
     new Question('Do you like to exercise?', 'A lot', 'A little', 'Neutral', 'Not really', 'Not at all'),
     new Question('Do you like to swim?', 'A lot', 'A little', 'Neutral', 'Not really', 'Not at all'),
-
+    new Question('Do you like hiking?', 'A lot', 'A little', 'Neutral', 'Not really', 'Not at all'),
+    new Question('Do you like road trips?', 'A lot', 'A little', 'Neutral', 'Not really', 'Not at all'),
+    new Question('Do you like snow?', 'A lot', 'A little', 'Neutral', 'Not really', 'Not at all'),
+    new Question('How physically coordinated would you say you are?', 'A lot', 'A little', 'Neutral', 'Not really', 'Not at all'),
+    new Question('Do you like to lead rather than follow?', 'A lot', 'A little', 'Neutral', 'Not really', 'Not at all')
 
 ];
 let questions;
@@ -31,10 +35,12 @@ $('#start-survey').click(function (event) {
     // $('#survey').addClass('is-active');
     $('.questions').empty();
     // $(window).animate({scrollTop: '100vh'},500);
-    $('#survey')[0].scrollIntoView({
-        behavior: "smooth", // or "auto" or "instant"
-        block: "start" // or "end"
-    })
+    // $('#survey')[0].scrollIntoView({
+    //     behavior: "smooth", // or "auto" or "instant"
+    //     block: "start" // or "end"
+    // })
+
+    $('html').animate({ scrollTop: $('#survey').prop("scrollHeight")}, 500);
     questions = surveyGen(survey);
     askNextQuestion();
 });
@@ -70,6 +76,9 @@ function askNextQuestion() {
     console.log(next);
     if (next) {
         $('.questions').append(next)
+        $('.survey-content').scrollTop('100%');;
+        $(".survey-content").animate({ scrollTop: $('.survey-content').prop("scrollHeight")}, 500);
+
     } else {
         $('.questions').append(
             $('<div class="field">').append(
@@ -79,6 +88,6 @@ function askNextQuestion() {
                 )
             )
         )
-        $('.survey-content').animate({ scrollTop: '100%' }, 300);
+        $(".survey-content").animate({ scrollTop: $('.survey-content').prop("scrollHeight")}, 500);
     }
 }
